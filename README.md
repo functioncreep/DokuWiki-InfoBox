@@ -2,6 +2,13 @@
 
 A flexible infobox plugin for DokuWiki that creates structured information boxes for any type of content.
 
+> [!NOTE]
+> This is a fork of [Kanaru92's Infobox Plugin](https://github.com/Kanaru92/DokuWiki-InfoBox), created mainly to fix a bug with struct data field values breaking parsing.
+> 
+> **This fork contains a breaking change to the Infobox plugin syntax.** Using this version of the plugin will require changes to any Infobox instances used throughout your wiki. **Use at your own risk.**
+> 
+> See the note under [Basic Usage](#basic-usage) below for more information on the syntax differences from the original plugin.
+
 ![Example Image](https://github.com/user-attachments/assets/7fc33a7c-541c-4a40-938b-7c3e462630c3)
 
 Features
@@ -37,8 +44,27 @@ name = Name
 image = example.jpg
 Field 1 = Text 1
 Field 2 = Text 2
-}}
+<infobox}}
 ```
+
+> [!IMPORTANT]
+> The closing pattern for this version of the plugin differs from the original:
+>
+> **Original:**
+> ```
+> {{infobox>
+> /* ... fields ... */
+> }}
+> ```
+>
+> **This version:**
+> ```
+> {{infobox>
+> /* ... fields ... */
+> <infobox}}
+> ```
+>
+> Using this version of the plugin in a wiki which had previously been using the original will break the rendering of any infoboxes still containing the original closing syntax.
 
 Header Image
 ------------
@@ -50,7 +76,7 @@ name = Character Name
 image = portrait.jpg
 Field 1 = Text 1
 Field 2 = Text 2
-}}
+<infobox}}
 ```
 
 Multiple Images
@@ -63,7 +89,7 @@ image2 = example2.jpg|Image Tab 2
 image3 = example3.jpg|Image Tab 3
 Field 1 = Text 1
 Field 2 = Text 2
-}}
+<infobox}}
 ```
 
 With Sections
@@ -86,7 +112,7 @@ Field 2 = Text 2
 === Collapsible Section ===
 Field 1 = Text 1
 Field 2 = Text 2
-}}
+<infobox}}
 ```
 
 With Struct Plugin
@@ -97,7 +123,7 @@ name = {{$project.name}}
 status = {{$project.status}}
 budget = {{$project.budget}}
 deadline = {{$project.deadline}}
-}}
+<infobox}}
 ```
 
 With Subgroups within Sections
@@ -121,7 +147,7 @@ Info 2 = [[Info 1]]
 Info 1 = [[Info 1]]
 Info 2 = [[Info 1]]
 Info 3 = [[Info 1]]
-}}
+<infobox}}
 ```
 
 Headerless Sections and Columns
@@ -141,7 +167,7 @@ Info 2 = [[Info 2]]
 Info 3 = [[Info 3]]
 Info 4 = [[Info 4]]
 Info 5 = [[Info 5]]
-}}
+<infobox}}
 ```
 
 Full-Width Values
@@ -158,7 +184,7 @@ Level = 50
 = [[View Full Stats]] =
 Health = 1000
 Mana = 500
-}}
+<infobox}}
 ```
 
 Spoiler/Blur Content
@@ -175,7 +201,7 @@ image = character.jpg
 age = 30
 !trauma = !Parents were murdered
 occupation = Journalist
-}}
+<infobox}}
 ```
 
 **Spoiler Options:**
@@ -211,7 +237,7 @@ plane = Batwing
 divider = Gadgets
 utility_belt = Various tools
 grappling_gun = For mobility
-}}
+<infobox}}
 ```
 
 

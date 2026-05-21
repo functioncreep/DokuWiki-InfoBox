@@ -24,7 +24,7 @@ class syntax_plugin_infobox extends DokuWiki_Syntax_Plugin {
     }
     
     public function postConnect() {
-        $this->Lexer->addExitPattern('\}\}', 'plugin_infobox');
+        $this->Lexer->addExitPattern('<infobox\}\}', 'plugin_infobox');
     }
 
     public function handle($match, $state, $pos, Doku_Handler $handler) {

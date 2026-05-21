@@ -1,6 +1,6 @@
 base   infobox
 author Kanaru
-date   2024-08-04
-name   Infobox Plugin
+date   2026-05-21
+name   Infobox Plugin (functioncreep fork)
 desc   Adds an infobox to DokuWiki pages.
-url    https://github.com/Kanaru92/DokuWiki-InfoBox/
+url    https://github.com/functioncreep/DokuWiki-InfoBox/
